@@ -1,43 +1,71 @@
-# CloudDocs: Real-time Collaborative Document System
+# CloudDocs ☁️
 
-A premium document collaboration system with real-time editing, version control, and user authentication.
+CloudDocs is a full-stack, real-time document collaboration platform built with the MERN stack (MongoDB, Express, React, Node.js) and Socket.io. It seamlessly blends modern text editing with robust collaborative features right in your browser.
 
-## 🚀 Features
-- **Real-time Collaboration**: Multiple users editing the same document simultaneously with visual updates.
-- **Secure Authentication**: JWT-based login and registration system.
-- **Auto-save**: Documents are automatically saved to the database.
-- **Modern UI**: Sleek, dark-mode glassmorphism design.
+## ✨ Features
+
+- **Real-time Collaboration**: Type alongside your teammates with sub-second synchronization.
+- **Live Presence & Cursors**: See exactly who is editing and track their cursor movements in real-time.
+- **Persistent Live Chat**: Communicate directly within the document interface using the integrated chat system.
+- **Version History & Rollback**: Create save checkpoints and instantly restore your document to any previous state.
+- **Secure Access Control**: JWT-based authentication ensures only authorized users (owners and invited collaborators) can view or modify documents.
+- **Modern Interface**: A sleek, glassmorphic UI offering a premium user experience.
 
 ## 🛠️ Technology Stack
-- **Frontend**: React, Vite, Socket.io-client, Quill.js, Lucide-React.
-- **Backend**: Node.js, Express, Socket.io, Mongoose.
-- **Database**: MongoDB.
 
-## 🏁 Getting Started
+- **Frontend**: React (Vite), Quill.js (Rich Text Editor), Lucide-React (Icons), raw CSS (Tailwinds not required).
+- **Backend**: Node.js, Express.js, Socket.io (WebSocket for real-time engine).
+- **Database**: MongoDB Atlas (Cloud database for persistence), Mongoose ODM.
+- **Security**: JWT (JSON Web Tokens), Bcrypt (Password hashing).
 
-### 1. Prerequisites
-- Node.js installed on your system.
-- MongoDB instance (Local or MongoDB Atlas).
+## 🚀 Getting Started
 
-### 2. Backend Setup
-1. Navigate to the `server` directory.
-2. Create/Edit the `.env` file and add your MongoDB connection string:
-   ```env
-   MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/collab-docs
-   JWT_SECRET=your_jwt_secret
-   PORT=5000
+### Prerequisites
+- Node.js installed on your machine.
+- A MongoDB cluster URL (or local installation).
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/shivakasula48/clouddocs.git
+   cd clouddocs
    ```
-3. Run `npm install` (if not already done).
-4. Start the server: `node index.js`.
 
-### 3. Frontend Setup
-1. Navigate to the `client` directory.
-2. Run `npm install` (if not already done).
-3. Start the dev server: `npm run dev`.
-4. Open your browser at `http://localhost:5173`.
+2. **Install Server Dependencies:**
+   ```bash
+   cd server
+   npm install
+   ```
 
-## 🔒 Security
-The system uses `bcryptjs` for password hashing and `jsonwebtoken` for secure session management.
+3. **Install Client Dependencies:**
+   ```bash
+   cd ../client
+   npm install
+   ```
 
-## 📝 Version Control & Comments
-The backend schema is already structured to support document versioning and comments. You can extend the UI in `Editor.jsx` to display the `versions` array from the Document model.
+4. **Environment Variables (.env)**
+   Create a `.env` file in the `server` directory and add:
+   ```env
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   ```
+
+### Running the Application
+
+Open two terminal windows:
+
+**Terminal 1 (Backend Server):**
+```bash
+cd server
+node index.js
+```
+
+**Terminal 2 (Frontend Client):**
+```bash
+cd client
+npm run dev
+```
+
+The application will be accessible at `http://localhost:5173`.
