@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #10b981;
+  --glass: rgba(30, 41, 59, 0.7);
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+.glass-morphism {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Quill Editor Customization */
+.ql-container {
+  height: calc(100vh - 120px) !important;
+  font-size: 1.1rem !important;
+  border: none !important;
+}
+
+.ql-toolbar {
+  background: white !important;
+  border-radius: 8px 8px 0 0 !important;
+  border: none !important;
+  margin-bottom: 2px;
+}
+
+.editor-container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Editor Page Styles */
+.editor-page {
+  background: #0f172a;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.editor-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  margin-bottom: 20px;
+  border-radius: 0;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.doc-title-input {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #6366f1;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: 250px;
+  transition: all 0.2s;
+}
+
+.doc-title-input:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.doc-title-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.save-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.manual-save-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.manual-save-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.share-btn-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.share-btn-nav:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: #6366f1;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.share-modal {
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+}
+
+.permissions-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.invite-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.invite-form input {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+}
+
+.invite-form button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.collab-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.animate-in {
+  animation: fadeInDown 0.3s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.editor-main {
+  display: flex;
+  gap: 20px;
+  padding: 0 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.editor-container {
+  flex: 1;
+}
+
+.comments-drawer {
+  width: 320px;
+  height: calc(100vh - 120px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-drawer h3 {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  color: white;
+}
+
+.comment-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.comment-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #6366f1;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  color: #cbd5e1;
+}
+
+.comment-input-area {
+  margin-top: 15px;
+}
+
+.comment-input-area input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.comment-input-area input:focus {
+  border-color: #6366f1;
+}
