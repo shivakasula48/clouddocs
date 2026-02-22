@@ -75,7 +75,7 @@ const Editor = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        const s = io("http://192.168.1.60:5000", {
+        const s = io(import.meta.env.VITE_API_URL, {
             auth: { token }
         });
         setSocket(s);

@@ -11,7 +11,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://192.168.1.60:5000/api/login', { email, password });
+            const res = await axios.post('${import.meta.env.VITE_API_URL}/api/login', { email, password });
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('username', res.data.username);
             navigate('/');
