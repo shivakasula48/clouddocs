@@ -13,7 +13,7 @@ const Dashboard = () => {
         const fetchDocs = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await axios.get('${import.meta.env.VITE_API_URL}/api/documents', {
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/documents`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setDocuments(res.data);
